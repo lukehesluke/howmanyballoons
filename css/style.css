@@ -1,0 +1,41 @@
+body {
+    background-color: #dae9f8;
+}
+#container {
+    width: 45em;
+    max-width: 90%;
+    margin: 0px auto;
+}
+#container > section {
+    padding: 10px 0px;
+}
+
+#button-div {
+    width: 15em;
+    margin: 0px auto;
+}
+#button-div > .button {
+    width: 100%;
+    background-color: #ec9a9a;
+}
+
+#results-section {
+    visibility: hidden;
+}
+.svgs-label {
+    text-align: center;
+}
+.svgs {
+    width: 25em;
+    max-width: 50%;
+    margin: 0px auto;
+}
+
+h1 {
+    color: #1a3447;
+    font-size: 3.5em;
+}
+label {
+    color: #6c778f;
+    font-size: 1.5em;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How Many Balloons?</title>
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <script src="js/vendor/modernizr.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <section id="intro-section">
+                <div class="row">
+                    <div class="small-12 columns">
+                        <h1>How Many Balloons?</h1>
+                    </div>
+                </div>
+                <form id="form" action="">
+                    <div class="row">
+                        <div class="small-12 columns">
+                            <label for="what-to-lift">I want to lift</label>
+                            <select id="what-to-lift">
+                                <option value="null">-- Choose --</option>
+                                <option value="house">My House</option>
+                                <option value="myself">Myself</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Area where extra form options are drawn based on what the user wants to lift -->
+                    <div id="extras-form-area"></div>
+                    <div class="row">
+                        <div id="button-div">
+                            <input type="submit" class="button" value="How many balloons?" />
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section id="results-section">
+                <!-- Results displayed here -->
+            </section>
+        </div>
+
+        <!-- Form template for estimating weight of house -->
+        <script id="house-form-template" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="small-6 columns">
+                    <label for="num-floors">How many floors?</label>
+                    <select id="num-floors">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                </div>
+                <div class="small-6 columns">
+                    <label for="num-bedrooms">How many bedrooms?</label>
+                    <select id="num-bedrooms">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        <option value="4">Four</option>
+                        <option value="5">Five</option>
+                        <option value="6">Six</option>
+                        <option value="7">Seven</option>
+                    </select>
+                </div>
+            </div>
+        </script>
+
+        <!-- Form template for getting weight of person -->
+        <script id="person-form-template" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="medium-10 small-8 columns">
+                    <label for="person-weight">Your weight?</label>
+                    <input type="text" placeholder="Weight" id="person-weight" />
+                </div>
+                <div class="medium-2 small-4 columns">
+                    <label for="person-weight-units">Units</label>
+                    <select id="person-weight-units">
+                        <option value="kgs">kg</option>
+                        <option value="lbs">lb</option>
+                    </select>
+                </div>
+            </div>
+        </script>
+
+        <!-- Template for displaying results -->
+        <script id="results-section-template" type="text/x-handlebars-template">
+            <div class="row">
+                <div class="small-12 columns">
+                    <div class="svgs-label">
+                        <label>You would need <strong>{{ num_standard_balloons }}</strong> balloon(s)</label>
+                        <label>creating a lattice <strong>{{ lattice_diameter }}</strong> metres in diameter!</label>
+                    </div>
+                    <div class="svgs">
+                        <img src="img/balloons.svg" width="{{ balloon_svg_width }}" />
+                        <img class="object-svg" src="{{ object_svg_url }}" width="{{ object_svg_width }}" />
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <script type="text/javascript" src="js/vendor/jquery.js"></script>
+        <script type="text/javascript" src="js/foundation.min.js"></script>
+        <script type="text/javascript" src="js/handlebars.js"></script>
+
+        <script type="text/javascript" src="js/howmanyballoons.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(document).foundation();
+                hmb.init();
+            });
+        </script>
+    </body>
+</html>
