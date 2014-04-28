@@ -57,7 +57,7 @@ var hmb = (function($, Handlebars) {
 
     var Balloon = (function() {
         // Lift per metre cubed of helium
-        var LIFT_PER_M3 = 1.0;
+        var LIFT_PER_M3 = 1.1;
 
         var cls = function(radius) {
             this.vol = (4.0 / 3.0) * Math.PI * Math.pow(radius, 3);
