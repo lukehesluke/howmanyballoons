@@ -11,23 +11,6 @@ var hmb = (function($, Handlebars) {
         $("#results-section").css("visibility", "visible");
     };
 
-    /**
-     * Turns number to a string with commas to separate thousands e.g. 30,000,000
-     */
-    var prettify = function(number) {
-        var chars = String(number).split("");
-        var prettier_chars = chars.reduceRight(function(so_far, next_char) {
-            so_far.next_comma -= 1;
-            if (so_far.next_comma < 0) {
-                so_far.next_comma = 2;
-                so_far.chars.push(",");
-            }
-            so_far.chars.push(next_char);
-            return so_far;
-        }, {"next_comma": 3, "chars": []}).chars.reverse();
-        return prettier_chars.join("");
-    };
-
     /** Add a percentage sign to a number */
     var percentify = function(number) {
         return String(number) + "%";
@@ -81,7 +64,7 @@ var hmb = (function($, Handlebars) {
         return cls;
     }());
 
-    var standard_balloon = new Balloon(0.169);
+    var standard_balloon = new Balloon(0.129);
     // Based on http://www.amazon.co.uk/meter-Professional-Weather-Balloon-1200g/dp/B0061SUOWO
     var weather_balloon = new Balloon(1.065);
 
@@ -114,9 +97,9 @@ var hmb = (function($, Handlebars) {
                 var lattice_radius = standard_balloon.lattice_radius(num_standard_balloons);
                 var width_percent = (thing_radius / lattice_radius) * 100.0;
                 $("#results-section").html(results_template({
-                    "num_standard_balloons": prettify(num_standard_balloons),
+                    "num_standard_balloons": num_standard_balloons.toLocaleString(),
                     "lattice_diameter": Math.round(lattice_radius * 2.0),
-                    //"num_weather_balloons": prettify(num_weather_balloons),
+                    //"num_weather_balloons": num_weather_balloons.toLocaleString(),
                     "balloon_svg_width": percentify(balloon_svg_width_percent),
                     "object_svg_url": this.get_svg_url(),
                     "object_svg_width": percentify(width_percent),
